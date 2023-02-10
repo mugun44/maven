@@ -1,34 +1,18 @@
 pipeline{
     agent any
-    
-    environment{
-        PATH = "/opt/maven/bin:$PATH"
-     }
-     stages{
-         stage("Git Checout"){
-              steps{
-                  git credentialsId: '9dcc1970-67f8-489a-aa7f-7db1a7ac8074', url: 'https://github.com/mugun44/maven'
-              }
-          }
-          stage("Maven-Build"){
-              steps{
-                  sh "mvn clean package"
-                  sh "mv target/*.war target/myweb.war"
-              }
-           }
-          /* stage("deploy-dev"){
-               steps{sshagent(['ec2-key']) {
-                    sh """
-                         scp -o StrictHostKeyChecking=no target/myweb.war ec2-user@10.0.1.239:/opt/tomcat9/webapps/
-                         
-                         ssh ec2-user@10.0.1.239 /opt/tomcat9/bin/shutdown.sh
-                         
-                         ssh ec2-user@10.0.1.239 /opt/tomcat9/bin/startup.sh
-
-                    """*/
-                    }
-               }
-           }
-        
-        }
-    }
+    environment {
+		PATH = "/opt/maven/bin:$PATH"
+	}
+	stages {
+		stage("Git Checout") {
+			steps {
+				git credentialsId: '9dcc1970-67f8-489a-aa7f-7db1a7ac8074', url: 'https://github.com/mugun44/maven'
+			}
+		}
+		stage("Maven-Build") {
+			steps {
+				sh "mvn clean package"
+				sh "mv target/*.war target/myweb.war"
+			}
+		}
+}
