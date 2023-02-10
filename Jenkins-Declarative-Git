@@ -6,7 +6,7 @@ pipeline{
 	stages {
 		stage("Git Checout") {
 			steps {
-				git credentialsId: '9dcc1970-67f8-489a-aa7f-7db1a7ac8074', url: 'https://github.com/mugun44/maven'
+				git branch: 'main', credentialsId: '9dcc1970-67f8-489a-aa7f-7db1a7ac8074', url: 'https://github.com/mugun44/maven'
 			}
 		}
 		stage("Maven-Build") {
