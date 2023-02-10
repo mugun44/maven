@@ -1,5 +1,3 @@
-#currentBuild.displayName = "Tomcat-APP-#"+currentBuild.number
-
 pipeline{
     agent any
     
