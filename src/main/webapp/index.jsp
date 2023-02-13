@@ -1,6 +1,6 @@
 <html>
 <body bgcolor="#ADD8E6">
 <center>
-  <marquee><h1>Mugun DOCKER DEPLOYMENT</h1></marquee></center>
+  <h1>Mugun new DOCKER DEPLOYMENT</h1></center>
 </body>
 </html>
